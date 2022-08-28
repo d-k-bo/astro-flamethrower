@@ -11,11 +11,11 @@ Install the project
 npm install astro-flamethrower
 ```
 
-and then insert the `<Flamethrower />` component into the body tag of your layouts.
+and then insert the `<Flamethrower />` component into the `<body>` tag of your layouts.
 
 ```astro
 ---
-import Flamethrower from "astro-flamethrower";
+import { Flamethrower } from "astro-flamethrower";
 
 // ...
 ---
