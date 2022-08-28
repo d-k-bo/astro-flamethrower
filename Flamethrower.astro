@@ -1,0 +1,56 @@
+---
+import type { FlamethrowerOptions } from "flamethrower-router/dist/interfaces";
+
+export interface Props {
+  /** Options that will be passed to flamethrower */
+  options?: FlamethrowerOptions;
+  /** CSS color of the progress bar */
+  color: string;
+  /** CSS width of the progress bar */
+  width?: string;
+}
+const { options, color, width } = Astro.props as Props;
+---
+
+<div
+  class="progress-bar"
+  id="flamethrower-progress-bar"
+  style={`border-top-color: ${color}; border-top-width: ${width ?? "2px"}`}
+  hidden
+  data-options={JSON.stringify(options ?? {})}
+>
+</div>
+<script>
+  import flamethrower from "flamethrower-router";
+  import type { FlamethrowerOptions } from "flamethrower-router/dist/interfaces";
+
+  const progressBar = document.getElementById("flamethrower-progress-bar")!;
+  const options: FlamethrowerOptions = JSON.parse(
+    progressBar.getAttribute("data-options")!
+  );
+  const router = flamethrower(options);
+
+  window.addEventListener("flamethrower:router:fetch", () => {
+    progressBar.hidden = false;
+  });
+  window.addEventListener(
+    "flamethrower:router:fetch-progress",
+    ({ detail }) => {
+      console.log(detail);
+      progressBar.style.width = detail.progress + "%";
+    }
+  );
+
+  window.addEventListener("flamethrower:router:end", () => {
+    progressBar.hidden = true;
+  });
+</script>
+
+<style>
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-style: solid;
+  }
+</style>

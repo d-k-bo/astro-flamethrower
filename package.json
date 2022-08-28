@@ -1,0 +1,22 @@
+{
+  "name": "astro-flamethrower",
+  "version": "0.1.0",
+  "description": "Astro component that integrates the flamethrower router and shows a progress bar",
+  "keywords": [
+    "astro",
+    "router",
+    "spa",
+    "flamethrower"
+  ],
+  "repository": "https://github.com/d-k-bo/astro-flamethrower",
+  "license": "MIT",
+  "author": "d-k-bo",
+  "type": "module",
+  "main": "index.ts",
+  "dependencies": {
+    "flamethrower-router": "^0.0.0-meme.9"
+  },
+  "devDependencies": {
+    "astro": "^1.1.1"
+  }
+}
