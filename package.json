@@ -1,6 +1,6 @@
 {
   "name": "astro-flamethrower",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Astro component that integrates the flamethrower router and shows a progress bar",
   "keywords": [
     "astro",
@@ -14,9 +14,9 @@
   "type": "module",
   "main": "index.ts",
   "dependencies": {
-    "flamethrower-router": "^0.0.0-meme.9"
+    "flamethrower-router": "^0.0.0-meme.12"
   },
   "devDependencies": {
-    "astro": "^1.1.1"
+    "astro": "^1.6.14"
   }
 }
